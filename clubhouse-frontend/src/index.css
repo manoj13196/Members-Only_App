@@ -1,0 +1,150 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container for pages */
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+}
+
+/* Headings */
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  padding: 10px 15px;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  background-color: #f0f8ff;
+}
+
+/* Buttons */
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Messages list */
+ul.message-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.message-list li {
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+}
+
+ul.message-list li h3 {
+  margin: 0 0 0.3rem;
+  color: #007bff;
+}
+
+ul.message-list li p {
+  margin: 0 0 0.5rem;
+  white-space: pre-wrap; /* preserve line breaks */
+}
+
+ul.message-list li small {
+  color: #555;
+  font-size: 0.85rem;
+}
+
+/* Success and error messages */
+p.success {
+  color: green;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+p.error {
+  color: #cc0000;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+/* Navbar */
+nav {
+  background-color: #007bff;
+  padding: 1rem 2rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .container {
+    margin: 1rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin: 0.5rem 0 0 0;
+  }
+}
