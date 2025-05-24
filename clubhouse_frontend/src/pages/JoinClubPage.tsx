@@ -30,7 +30,8 @@ export default function JoinClubPage() {
     }
 
     try {
-      const res = await fetch('http://localhost:3000/auth/join', {
+      const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+      const res = await fetch(`${API_URL}/auth/join`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

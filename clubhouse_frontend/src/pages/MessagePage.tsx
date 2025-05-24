@@ -26,8 +26,8 @@ export default function MessagesPage() {
     try {
       const headers: HeadersInit = { 'Content-Type': 'application/json' };
       if (token) headers['Authorization'] = `Bearer ${token}`;
-
-      const res = await fetch('http://localhost:3000/messages', { method: 'GET', headers });
+      const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+      const res = await fetch(`${API_URL}/messages`, { method: 'GET', headers });
       const data = await res.json();
 
       if (!res.ok) throw new Error(data.message || 'Failed to load');
