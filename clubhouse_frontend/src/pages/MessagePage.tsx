@@ -12,6 +12,7 @@ type Message = {
 };
 
 export default function MessagesPage() {
+  const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
   const { token, user } = useAuth();
 
   const [messages, setMessages] = useState<Message[]>([]);
@@ -26,7 +27,7 @@ export default function MessagesPage() {
     try {
       const headers: HeadersInit = { 'Content-Type': 'application/json' };
       if (token) headers['Authorization'] = `Bearer ${token}`;
-      const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+      
       const res = await fetch(`${API_URL}/messages`, { method: 'GET', headers });
       const data = await res.json();
 
@@ -57,7 +58,7 @@ export default function MessagesPage() {
     try {
       if (!token) throw new Error('You must be logged in to post messages');
 
-      const res = await fetch('http://localhost:3000/messages', {
+      const res = await fetch(`${API_URL}/messages`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify(form),
@@ -90,7 +91,7 @@ export default function MessagesPage() {
     if (!window.confirm('Are you sure you want to delete this message?')) return;
 
     try {
-      const res = await fetch(`http://localhost:3000/messages/${id}`, {
+      const res = await fetch(`${API_URL}/messages/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       });
